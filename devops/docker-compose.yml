@@ -17,3 +17,17 @@ services:
       - "8000:80"
     volumes:
       - .:/var/www
+
+  db:
+    image: mysql:8.0.20
+    container_name: db
+    restart: always
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=root
