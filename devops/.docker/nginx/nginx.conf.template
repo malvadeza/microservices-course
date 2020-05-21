@@ -17,7 +17,7 @@ server {
         fastcgi_param               SCRIPT_FILENAME     $document_root$fastcgi_script_name;
         fastcgi_param               PATH_INFO           $fastcgi_path_info;
 
-        fastcgi_pass                {{ default .Env.APP_HOSTNAME "app"}}:{{ default .Env.APP_PORT "9000" }};
+        fastcgi_pass                {{ default .Env.APP_HOSTNAME .Env.DEFAULT_APP_HOSTNAME }}:{{ default .Env.APP_PORT .Env.DEFAULT_APP_PORT }};
     }
 
     location / {

@@ -9,5 +9,8 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
+ENV DEFAULT_APP_PORT=9000 \
+    DEFAULT_APP_HOSTNAME=app
+
 # Remove default conf
 RUN rm /etc/nginx/conf.d/default.conf
