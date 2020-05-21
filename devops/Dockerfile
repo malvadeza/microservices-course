@@ -16,7 +16,6 @@ RUN rm -rf /var/www/html
 
 # Sets symlink to public folder
 WORKDIR /var/www
-RUN ln -s public html
 
 # Don't know if this is needed, original image already contains that
 # But again  ¯\_(ツ)_/¯
