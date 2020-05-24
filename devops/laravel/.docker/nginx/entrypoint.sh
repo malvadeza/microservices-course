@@ -4,7 +4,7 @@
 # Waits until app container is ready
 dockerize \
     -template nginx.conf.template:/etc/nginx/conf.d/nginx.conf \
-    -wait tcp://app:${APP_PORT:-$DEFAULT_APP_PORT}
+    -wait tcp://${APP_HOSTNAME:-$DEFAULT_APP_HOSTNAME}:${APP_PORT:-$DEFAULT_APP_PORT}
 
 # Runs nginx
 nginx -g "daemon off;"

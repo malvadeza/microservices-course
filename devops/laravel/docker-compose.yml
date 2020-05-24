@@ -5,6 +5,7 @@ services:
   app:
     build: .
     container_name: app
+    entrypoint: ./.docker/app/entrypoint.sh
     volumes:
       - .:/var/www
     depends_on:
@@ -32,7 +33,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./.docker/dbdata:/var/lib/mysql
+      - .docker/dbdata:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=laravel
       - MYSQL_USER=root
